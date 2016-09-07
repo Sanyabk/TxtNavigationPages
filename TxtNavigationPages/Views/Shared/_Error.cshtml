@@ -1,0 +1,27 @@
+﻿@model TxtNavigationPages.Models.ViewTextLayoutParameters
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Error!</title>
+	@*
+		Same documents are loading, as in the ViewText View.
+		May be optimized.
+	*@
+
+	<link href="~/Content/styles.css" rel="stylesheet" />
+	<script src="~/Scripts/jquery-3.1.0.js"></script>
+	<script src="~/Scripts/script.js"></script>
+</head>
+<body>
+	<div>
+		<section class="error-message">
+			@ViewBag.ErrorMessage
+		</section>
+	</div>
+	@*For giving client another chance to put non-negative numbers.*@
+	@Html.Partial("_ViewParametersPartial", Model)
+
+</body>
+</html>

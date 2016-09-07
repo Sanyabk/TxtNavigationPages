@@ -1,0 +1,41 @@
+﻿@model TxtNavigationPages.Models.ViewTextViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewText</title>
+	<link href="~/Content/styles.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.0.js"></script>
+    <script src="~/Scripts/script.js"></script>
+</head>
+<body>
+	<div class="container">
+		<!-- Blocks in container -->
+		<section id="blocks">
+			@foreach (var block in Model.Page.Blocks) {
+		<div class="block">
+			@foreach (var str in block.Strings) {
+				<div>@str</div>
+			}
+		</div>
+			<hr />
+			}
+		</section>
+	</div>
+	<!-- Pages fixed -->
+	<section id="pages">
+		@for (int i = 0; i < Model.PagesCount; i++) {
+		<a onclick="pageLoad(@i, @Model.ViewTextLayoutParameters.StringsPerBlock,  @Model.ViewTextLayoutParameters.BlockPerPage)">
+			@(i + 1)
+		</a>
+		}
+	</section>
+	<!-- For choosing BlocksPerPage and StringPerBlock -->
+	@Html.Partial("_ViewParametersPartial", Model.ViewTextLayoutParameters)
+</body>
+</html>

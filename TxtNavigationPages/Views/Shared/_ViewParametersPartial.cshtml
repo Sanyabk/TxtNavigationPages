@@ -1,0 +1,13 @@
+﻿<!-- it's empty for now -->
+@model TxtNavigationPages.Models.ViewTextLayoutParameters
+<section id="view-parameters">
+	<label>
+		Strings per Block:
+		<input type="number" id="stringsPerBlock" value="@Model.StringsPerBlock" min="1" />
+	</label>
+	<label>
+		Blocks per Page:
+		<input type="number" id="blocksPerPage" value="@Model.BlockPerPage" min="1" />
+	</label>
+	<button onclick="reloadPageWithViewParameters()">View</button>
+</section>
